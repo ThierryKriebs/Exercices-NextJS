@@ -1,26 +1,174 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+
+h1 {
+  
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+table{
+    width: 50%;
+    border-collapse: collapse;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
+th {
+    background-color: #22a82d;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #0e7915;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-hovered {
+    background-color: #0f0e6d;
+
+} */
+
+
+/* CSS SHOP */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: fex;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link.active {
+    background-color: #555;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%
+}
+
+/* Admin */
+.adminHeader {
+    background-color: lightblue;
+    color: black;
+    text-align: left;
+    padding: 1rem;
+}
+
+.adminFooter {
+    background-color: lightblue;
+    color: black;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%
+}
+
+
+/* Marketing */
+.marketingHeader {
+    background-color: darkolivegreen;
+    color: black;
+    text-align: left;
+    padding: 1rem;
+}
+
+.marketingFooter {
+    background-color: darkolivegreen;
+    color: black;
+    text-align: center;
+    padding: 0.2rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%
+}
+
+
+/* auth */
+.authHeader {
+    background-color: rgb(18, 24, 75);
+    color: white;
+    text-align: left;
+    padding: 1rem;
+}
+
+.authFooter {
+    background-color: rgb(18, 24, 75);
+    color: white;
+    text-align: center;
+    padding: 0.2rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%
+}
+
+
+
+.container {
+    padding: 1rem;
+    /* background-color: darkred; */
+    
+}
+
+article {
+    padding: 1rem;
+}
+
+.card {
+    padding: 1rem;
+    background-color: lightgray;
+    border-radius: 5px;
+    margin-bottom: 7px;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+/* Fil d'ariane */
+.breakcrumb {
+    display: inline-block;
+    padding: 0.5rem;
+    background-color: #f2f2f2;
+    border-radius: '4px';
+    font-size: 0.9rem;
 }
