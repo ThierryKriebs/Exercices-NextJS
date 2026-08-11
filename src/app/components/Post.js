@@ -1,3 +1,5 @@
+import ReadMoreButton from "@/app/components/ReadMoreButton"
+
 export default function Post({ title, body, id }) {
     return (
         <div className="card">
@@ -7,7 +9,7 @@ export default function Post({ title, body, id }) {
                 
                 {/* Alternative non recommandée à Link de NetxtJS! */}
                 {/* redirection via useRouter */}
-
+                <ReadMoreButton id={id} />
             </article>
         </div>
     )
