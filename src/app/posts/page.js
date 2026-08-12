@@ -1,4 +1,4 @@
-import Post from "../components/Post";
+import Post from "@/app/components/Post";
 
 // Function pour fetch
 async function getPosts(){
