@@ -2,7 +2,8 @@
 "use client"
 import { useState, useEffect } from "react";
 import Post from "@/app/components/Post";
-import PostButton from "@/app/components/PostButton";
+// import PostButton from "@/app/components/PostButton";
+import Search from "@/app/components/Search";
 
 
 export default function Blog() {
@@ -10,7 +11,7 @@ export default function Blog() {
     const [posts, setPosts] = useState([]); 
     // const posts = await getPosts(); // Fait précédemment (avant le champ de recherche)
     
-    // Function pour fetch
+    // Function pour récupérer les posts depuis l'API
     const getPosts = async () => {
         const res = await fetch('http://localhost:3000/posts/api');
         const data = await res.json();
@@ -23,10 +24,19 @@ export default function Blog() {
     }, []);
 
 
+    // function pour mettre à jour le state des posts en fonction de la recherche
+    const updatedArticles = (articles) => {
+        setPosts(articles);
+    }
+
     return (
         <div className="container" style= {{marginBottom: '70px'}}>
-           {/* Bouton pour envoyer un post */}
-           <PostButton />     
+           {/* Avant: Bouton pour envoyer un post */}
+           {/* <PostButton />      */}
+
+           {/* Champ de recherche */}
+            <Search getSearchResults={updatedArticles} />
+
            
             <h1>Notre Blog</h1>
             { 
