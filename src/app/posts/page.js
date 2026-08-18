@@ -2,7 +2,7 @@
 "use client"
 import { useState, useEffect } from "react";
 import Post from "@/app/components/Post";
-// import PostButton from "@/app/components/PostButton";
+import PostButton from "@/app/components/PostButton";
 import Search from "@/app/components/Search";
 
 
@@ -36,7 +36,7 @@ export default function Blog() {
     return (
         <div className="container" style= {{marginBottom: '70px'}}>
            {/* Avant: Bouton pour envoyer un post */}
-           {/* <PostButton />      */}
+           <PostButton />     
 
            {/* Champ de recherche */}
             <Search 
