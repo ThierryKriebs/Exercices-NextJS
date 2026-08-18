@@ -14,7 +14,9 @@ export async function GET(request) {
     const articles = await fetchArticles();
 
     // récupération des paramètres de recherche de l'URL
-    const searchParams = request.nextUrl.searchParams;
+    // const searchParams = request.nextUrl.searchParams; //méthode 1
+    const {searchParams } = new URL(request.url) //méthode 2
+    console.log(searchParams);
     const query = searchParams.get('query'); //api/search?query=hello
 
     //filtrage des articles en fonction de la requête de recherche

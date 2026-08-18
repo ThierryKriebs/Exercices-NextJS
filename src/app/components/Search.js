@@ -2,7 +2,7 @@
 import {useState} from 'react';
 
 
-export default function Search({getSearchResults}) {
+export default function Search({getSearchResults, handleRefresh }) {
     const [query, setQuery] = useState('');
 
     const handleSubmit = async (e) => {
@@ -26,6 +26,9 @@ export default function Search({getSearchResults}) {
             />
             <button type='submit'>Rechercher</button>
         </form>
+        <button className='refresh-button' onClick={handleRefresh}>
+            Actualiser
+        </button>
     </div>
   )
 }

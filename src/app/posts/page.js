@@ -29,13 +29,20 @@ export default function Blog() {
         setPosts(articles);
     }
 
+    const handleRefresh = () => {
+        getPosts();
+    }
+
     return (
         <div className="container" style= {{marginBottom: '70px'}}>
            {/* Avant: Bouton pour envoyer un post */}
            {/* <PostButton />      */}
 
            {/* Champ de recherche */}
-            <Search getSearchResults={updatedArticles} />
+            <Search 
+                getSearchResults={updatedArticles} 
+                handleRefresh={handleRefresh}
+            />
 
            
             <h1>Notre Blog</h1>
