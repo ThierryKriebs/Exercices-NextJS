@@ -16,7 +16,14 @@ export async function GET(request) {
     const data = await res.json();
     // const posts = data.slice(0,5); //récupération des premiers posts
     // return NextResponse.json( {data: posts} ); //renvoie un objet json dont la propriété s'appelle data et qui contient les premiers posts
-    return NextResponse.json({ data });
+    
+    //return NextResponse.json({ data });
+    return new NextResponse("<h2>Data en HTML</h2>", {
+        headers: { 
+            "Content-Type": "text/html" //permettra de préciser que le contenu à afficher est du HTML
+        }
+    });
+
 }
 
 
