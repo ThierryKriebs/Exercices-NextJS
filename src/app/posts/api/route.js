@@ -1,7 +1,17 @@
 import { NextResponse } from "next/server";
+//import { headers} from 'next/headers';
 
 // GET
-export async function GET() {
+export async function GET(request) {
+    // méthode 1:
+    // const requestheaders = headers();
+    // console.log((await requestheaders).get("Auth"));
+
+    // méthode 2:
+    const requestheaders = new Headers(request.headers);
+    console.log(requestheaders.get("Auth"));
+
+
     const res = await fetch('https://jsonplaceholder.typicode.com/posts');
     const data = await res.json();
     // const posts = data.slice(0,5); //récupération des premiers posts

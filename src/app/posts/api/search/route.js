@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 
+
+
 // fonction pour récupérer les articles depuis l'API jsonplaceholder
 async function fetchArticles() {
     const response = await fetch('https://jsonplaceholder.typicode.com/posts');

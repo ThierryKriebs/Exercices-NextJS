@@ -13,7 +13,12 @@ export default function Blog() {
     
     // Function pour récupérer les posts depuis l'API
     const getPosts = async () => {
-        const res = await fetch('http://localhost:3000/posts/api');
+        const res = await fetch('http://localhost:3000/posts/api', {
+            method: "GET",
+            headers: {
+                Auth: "DonkeyGeek"
+            }
+        });
         const data = await res.json();
         setPosts(data.data)
     }
