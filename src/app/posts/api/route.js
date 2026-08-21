@@ -14,15 +14,33 @@ export async function GET(request) {
 
     const res = await fetch('https://jsonplaceholder.typicode.com/posts');
     const data = await res.json();
+    // Si on veut retourner les premiers posts
     // const posts = data.slice(0,5); //récupération des premiers posts
     // return NextResponse.json( {data: posts} ); //renvoie un objet json dont la propriété s'appelle data et qui contient les premiers posts
-    
     //return NextResponse.json({ data });
-    return new NextResponse("<h2>Data en HTML</h2>", {
+    
+    // Si on veut retourner du html:
+    // return new NextResponse("<h2>Data en HTML</h2>", {
+    //     headers: { 
+    //         "Content-Type": "text/html" //permettra de préciser que le contenu à afficher est du HTML
+    //     }
+    // });
+
+    // Si on veut retourner des cookies
+    // return new NextResponse({ data }, {
+    //     headers: { 
+    //         "Set-Cookie": "userToken=12345"
+    //     }
+    // });
+
+    // Si on veut retourner des cookies et un json
+    return NextResponse.json({ data }, {
         headers: { 
-            "Content-Type": "text/html" //permettra de préciser que le contenu à afficher est du HTML
+            "Set-Cookie": "userToken=12345"
         }
     });
+
+
 
 }
 
