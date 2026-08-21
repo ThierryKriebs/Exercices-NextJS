@@ -9,6 +9,8 @@ import Search from "@/app/components/Search";
 export default function Blog() {
     
     const [posts, setPosts] = useState([]); 
+    const [token, setToken] = useState({}); 
+
     // const posts = await getPosts(); // Fait précédemment (avant le champ de recherche)
     
     // Function pour récupérer les posts depuis l'API
@@ -20,7 +22,8 @@ export default function Blog() {
             }
         });
         const data = await res.json();
-        setPosts(data.data)
+        setPosts(data.data);
+        setToken(data.token);
     }
 
     // pour le champ de recherche, on va utiliser useEffect pour fetch les posts et les stocker dans le state
@@ -40,17 +43,16 @@ export default function Blog() {
 
     return (
         <div className="container" style= {{marginBottom: '70px'}}>
-           {/* Avant: Bouton pour envoyer un post */}
-           <PostButton />     
-
            {/* Champ de recherche */}
             <Search 
                 getSearchResults={updatedArticles} 
                 handleRefresh={handleRefresh}
             />
-
+            {/* Avant: Bouton pour envoyer un post */}
+            <PostButton />   
            
             <h1>Notre Blog</h1>
+            <p>{token.name} | {token.value}</p>
             { 
                 posts.map((post) => {
                     return <Post key = {post.id} title= {post.title} body= {post.body} id={post.id} />

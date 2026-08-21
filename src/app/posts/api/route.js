@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 //import { headers} from 'next/headers';
+import {cookies} from 'next/headers';
 
 // GET
 export async function GET(request) {
@@ -26,19 +27,48 @@ export async function GET(request) {
     //     }
     // });
 
+    // Si on veut lire un cookie méthode 1
+    // const userToken = request.cookies.get("userToken")
+    // console.log(userToken); //{ name: 'userToken', value: '12345' }
+
+    // Si on veut lire un cookie méthode 2
+    const cookiesStore = await cookies();
+    const userToken = cookiesStore.get('userToken');
+    console.log(userToken); //{ name: 'userToken', value: '12345', path: '/' }
+
+
     // Si on veut retourner des cookies
     // return new NextResponse({ data }, {
+    //     définition du cookie directement dans notre headers
     //     headers: { 
     //         "Set-Cookie": "userToken=12345"
     //     }
     // });
 
+    // Si on veut définir un cookie, méthode 2:
+    cookiesStore.set("theme", "dark");
+    console.log((await cookies()).get("theme")) // ou cookiesStore.get("theme")
+
+    console.log(cookiesStore.getAll());
+    // [
+    //     { name: 'userToken', value: '12345', path: '/' },
+    //     { name: 'theme', value: 'dark', path: '/' },
+    //     { name: '__next_hmr_refresh_hash__', value: '213', path: '/' }
+    // ]
+
     // Si on veut retourner des cookies et un json
-    return NextResponse.json({ data }, {
-        headers: { 
-            "Set-Cookie": "userToken=12345"
+    return NextResponse.json(
+        { 
+            data: data,
+            token: userToken 
+        }, 
+        {
+                // définition du cookie directement dans notre headers
+                headers: { 
+                    "Set-Cookie": "userToken=12345"
+                }
         }
-    });
+    );
 
 
 
