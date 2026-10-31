@@ -1,13 +1,23 @@
 import Link from 'next/link';
 import { notFound } from "next/navigation";
 
-
-export const metadata = {
-    title: "Blog spécifique",
-    description: 'Bienvenue sur le blog de DonkeyGeek.com'
-};
-
-
+// Génération de métadata dynamique
+export const generateMetadata = async ({ params }) => {
+    const { id } = await params; // params est une Promise dans Next.js 15+
+    
+    const article = await fetch(
+        `https://jsonplaceholder.typicode.com/posts/${id}`
+    ).then((res) => res.json());
+    
+    return {
+        title: article.title
+        ? article.title.substring(0,15)
+        : "Article introuvable",
+        description: article.body
+        ? article.body.substring(0, 50)
+        : "Article introuvable",
+    }
+}
 
 export default async function ArticleDetails({ params }) {
     const { id } = await params;
