@@ -1,5 +1,10 @@
 import Link from 'next/link';
 
+export const metadata = {
+    title: "Blog",
+    description: 'Bienvenue sur le blog de DonkeyGeek.com'
+};
+
 export default async function Blog() {
 
     const resp = await fetch('https://jsonplaceholder.typicode.com/posts')

@@ -1,6 +1,14 @@
 import Link from 'next/link';
 import { notFound } from "next/navigation";
 
+
+export const metadata = {
+    title: "Blog spécifique",
+    description: 'Bienvenue sur le blog de DonkeyGeek.com'
+};
+
+
+
 export default async function ArticleDetails({ params }) {
     const { id } = await params;
 
