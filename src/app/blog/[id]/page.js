@@ -19,6 +19,24 @@ export const generateMetadata = async ({ params }) => {
     }
 }
 
+export async function generateStaticParams() {
+    const posts = await fetch('https://jsonplaceholder.typicode.com/posts').then(
+        (res) => res.json()
+    )
+
+    const myArray = posts.map((post) => ({
+        id: post.id.toString(),
+    }))
+
+    console.log(myArray)
+
+    return posts.map((post) => ({
+        id: post.id.toString(),
+    }))
+
+    
+}
+
 export default async function ArticleDetails({ params }) {
     const { id } = await params;
 
